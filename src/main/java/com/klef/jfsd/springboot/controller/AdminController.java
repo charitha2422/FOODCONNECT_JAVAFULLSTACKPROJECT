@@ -59,7 +59,7 @@ public class AdminController
    
    
    @PostMapping("checkadminlogin")
-   //as we take input from from form(servlet/jsp) use this
+  
    public  ModelAndView   checkadminlogin(HttpServletRequest request)
    {
 	   String uname=request.getParameter("auname");
@@ -98,7 +98,7 @@ public class AdminController
 		  
 		  List<FoodDonor> donorlist=adminService.ViewallDonors();
 		  mv.setViewName("viewdonors");
-		  mv.addObject("donorlist", donorlist);//firstargument any variable name where the value 2nd attribute is stored to access this in model (jsp page)
+		  mv.addObject("donorlist", donorlist);
 		  return mv;
 	  }
 	  
@@ -237,7 +237,7 @@ public class AdminController
 	        MimeMessage mimeMessage = mailSender.createMimeMessage(); 
 	        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true); 
 	         
-	        int otp = (int)(Math.random() * 99999); // random number generation         
+	        int otp = (int)(Math.random() * 99999);         
 	 
 	        helper.setTo(toemail); 
 	        helper.setSubject(subject); 
