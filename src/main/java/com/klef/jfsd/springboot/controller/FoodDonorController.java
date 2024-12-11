@@ -28,7 +28,7 @@ public class FoodDonorController
 	
 	
 	 @PostMapping("checkdonorlogin")
-	   //as we take input from from form(servlet/jsp) use this
+	  
 	   public  ModelAndView   checkadminlogin(HttpServletRequest request)
 	   {
 		   String email =request.getParameter("demail");
@@ -46,7 +46,7 @@ public class FoodDonorController
 		    }
 		    else if(!donor.getStatus().equals("Accepted"))
 		    {
-		    	 // Donor exists but status is not 'Accepted'
+		    
 		    	ModelAndView mv=new ModelAndView("donorlogin");
 		    	mv.addObject("message", "Awaiting Approval from Admin!!");
 		    	return mv;
@@ -55,7 +55,7 @@ public class FoodDonorController
 		   
 		    else
 		    {
-		    	//donor is there so create the session for that donor user
+		    	
 		    	
 		    	HttpSession session=request.getSession();
 			    session.setAttribute("donor", donor);
@@ -69,7 +69,7 @@ public class FoodDonorController
 	 
 	 
 	 @PostMapping("donorreg")
-	 // as we take input from form(jsp convert to servlet)
+	
 	 public ModelAndView  insertdonor(HttpServletRequest request)
 	 {
 		String name= request.getParameter("dname");
@@ -101,7 +101,7 @@ public class FoodDonorController
 		 
 		 try
 		 {
-//		  int id=Integer.parseInt(request.getParameter("did"));
+		 
 		  String name=      request.getParameter("dname");
 		  String contact=   request.getParameter("dcontact");
 		  String email =    request.getParameter("demail");
@@ -117,7 +117,7 @@ public class FoodDonorController
 
 		  Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
 		  FoodDonations donations=new FoodDonations();
-//		  donations.setId(id);
+
 		  donations.setContact(contact);
 		  donations.setDescription(fdesc);
 		  donations.setDonationFrequency(frequency);
@@ -234,7 +234,7 @@ public class FoodDonorController
 		HttpSession session= request.getSession();
 		FoodDonor d=(FoodDonor)session.getAttribute("donor");
 		FoodDonations donation= donorService.displaydonationbyEmail(d.getEmail());
-//	  if donations are not available then in console msg is printed as not donations available
+
 		if (donation == null) {
 		    System.out.println("No donations found for email: " + d.getEmail());
 		}
