@@ -67,7 +67,7 @@ public class RecipientController
 	   }
 	 
 	 @PostMapping("recipientreg")
-	 // as we take input from form(jsp convert to servlet)
+	
 	 public ModelAndView  insertrecipient(HttpServletRequest request)
 	 {
 		String regno=request.getParameter("regno");
@@ -211,8 +211,7 @@ public class RecipientController
 
 	   return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
 	   
-	   
-	 //ResponseEntity means Response Body, HTTP Status Code(200 means Ok), Headers
+	
 	 }
 	 
 	 
@@ -263,7 +262,7 @@ public class RecipientController
 	        MimeMessage mimeMessage = mailSender.createMimeMessage(); 
 	        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true); 
 	         
-	        int otp = (int)(Math.random() * 99999); // random number generation         
+	        int otp = (int)(Math.random() * 99999);          
 	 
 	        helper.setTo(toemail); 
 	        helper.setSubject(subject); 
